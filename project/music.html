@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>歌词滚动</title>
+</head>
+<body>
+     <audio src="http://sc1.111ttt.cn/2017/1/11/11/304112004168.mp3" controls="controls" onpause="pause()">
+
+</audio>
+     <video controls onpause="myFunction()">
+    <source src="mov_bbb.mp4" type="video/mp4">
+    <source src="mov_bbb.ogg" type="video/ogg">
+    您的浏览器不支持 HTML5 video。
+</video>
+     <span onclick="pause()">Your browser does not support the audio element.</span>
+	 <ul id="lrc"></ul>
+	
+</body>
+<script src="./js/jquery-1.11.2.min.js"></script>
+<script>
+    var medisArray = new Array();
+	var createLrc = function () {
+	    var medis = "[00:8.971]作词：戴荃\n[00:16.971]作曲：戴荃\n[00:22.971]月溅星河\n[00:25.069]长路漫漫\n[00:29.769]风烟残尽\n[00:33.000]独影阑珊\n[00:36.560]谁叫我身手不凡\n[00:39.960]谁让我爱恨两难\n[00:42.860]到后来\n[00:46.313]肝肠寸断\n[00:50.713]幻世当空\n[00:53.113]恩怨休怀\n[00:57.563]舍悟离迷\n[01:00.314]六尘不改\n[01:04.750]且怒且悲且狂哉\n[01:07.885]是人是鬼是妖怪\n[01:10.835]不过是\n[01:14.135]心有魔债\n[01:17.747]叫一声佛祖\n[01:20.697]回头无岸\n[01:24.889]跪一人为师\n[01:27.639]生死无关\n[01:32.800]善恶浮世真假界\n[01:35.690]尘缘散聚不分明\n[01:38.940]难断\n[01:42.740]我要\n[01:44.760]这铁棒有何用\n[01:49.352]我有\n[01:51.353]这变化又如何\n[01:55.953]还是不安\n[01:59.053]还是氐惆\n[02:03.204]金箍当头\n[02:05.362]欲说还休\n[02:26.160]我要\n[02:28.010]这铁棒醉舞魔\n[02:33.192]我有\n[02:34.792]这变化乱迷浊\n[02:39.820]踏碎灵霄\n[02:42.243]放肆桀骜\n[02:46.693]世恶道险\n[02:48.793]终究难逃\n[02:54.526]这一棒\n[02:59.001]叫你灰飞烟灭";
+	    var medises = medis.split("\n");
+	    console.log(medises);
+	    $.each(medises, function (i, item) {
+	        var t = item.substring(item.indexOf("[") + 1, item.indexOf("]"));
+	        medisArray.push({
+	 
+	            t: (t.split(":")[0] * 60 + parseFloat(t.split(":")[1])).toFixed(3),
+	            c: item.substring(item.indexOf("]") + 1, item.length)
+	        });
+	    });
+	    var ul = $("#lrc");
+	    $.each(medisArray, function (i, item) {
+            console.log(item.t);
+	        var li = $("<li>");
+	        li.html(item.c);
+	        ul.append(li);
+	    });
+	}
+
+
+    createLrc();
+
+
+
+    var linehight = function (lineno) {
+    var ul = $("#lrc");
+    var $ul = document.getElementById('lrc');
+ 
+    if (lineno > 0) {
+        $(ul.find("li").get(topNum + lineno - 1)).removeClass("lineheight");
+    }
+    var nowline = ul.find("li").get(topNum + lineno);
+    $(nowline).addClass("lineheight");
+ 
+    var _scrollTop;
+    $ul.scrollTop = 0;
+    if ($ul.clientHeight * fraction > nowline.offsetTop) {
+        _scrollTop = 0;
+    } else if (nowline.offsetTop > ($ul.scrollHeight - $ul.clientHeight * (1 - fraction))) {
+        _scrollTop = $ul.scrollHeight - $ul.clientHeight;
+    } else {
+        _scrollTop = nowline.offsetTop - $ul.clientHeight * fraction;
+    }
+ 
+ 
+    //以下声明歌词高亮行固定的基准线位置成为 “A”
+    if ((nowline.offsetTop - $ul.scrollTop) >= $ul.clientHeight * fraction) {
+        //如果高亮显示的歌词在A下面，那就将滚动条向下滚动，滚动距离为 当前高亮行距离顶部的距离-滚动条已经卷起的高度-A到可视窗口的距离
+        $ul.scrollTop += Math.ceil(nowline.offsetTop - $ul.scrollTop - $ul.clientHeight * fraction);
+ 
+    } else if ((nowline.offsetTop - $ul.scrollTop) < $ul.clientHeight * fraction && _scrollTop != 0) {
+        //如果高亮显示的歌词在A上面，那就将滚动条向上滚动，滚动距离为 A到可视窗口的距离-当前高亮行距离顶部的距离-滚动条已经卷起的高度
+        $ul.scrollTop -= Math.ceil($ul.clientHeight * fraction - (nowline.offsetTop - $ul.scrollTop));
+ 
+    } else if (_scrollTop == 0) {
+        $ul.scrollTop = 0;
+    } else {
+        $ul.scrollTop += $(ul.find('li').get(0)).height();
+    }
+ 
+}
+
+
+var audio=document.getElementsByTagName('audio');
+console.log(audio);
+audio.ontimeupdate = function () {
+	        console.log('播放');
+            if (lineNo == medisArray.length - 1 && audio.currentTime.toFixed(3) >= parseFloat(medisArray[lineNo].t)) {
+                linehight(lineNo);
+                //break;
+            }
+            if (parseFloat(medisArray[lineNo].t) <= audio.currentTime.toFixed(3) &&
+                audio.currentTime.toFixed(3) <= parseFloat(medisArray[lineNo + 1].t)) {
+                linehight(lineNo);
+                lineNo++;
+            }
+        };
+
+        function pause(){
+        	console.log('暂停');
+        }
+
+        function myFunction() {
+		    alert("视频已暂停。");
+		}
+</script>
+</html>

@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+body{
+  background:#f5f5f5;
+}
+
+.top_tab{
+    ul{
+         padding:0 .16rem;
+         display:flex;
+         flex-direction:row;
+         justify-content: space-between;
+         flex-wrap:wrap;
+         li{
+              width:33%;
+              span{
+                  display:block;
+                  text-align:center;
+                  font:.16rem/.4rem '微软雅黑';
+                  color:#000;
+                  border-bottom:1px solid transparent;
+              }
+              .active{
+                  color:#ff8b00;
+                  border-color:#ff8b00;
+              }
+         }
+    }
+}
+
+
+.container{
+
+
+    .section{
+
+      //   积分记录  签到记录   兑换记录
+         .intergral_list , .record_list , .exchange_list{
+              li{
+                  padding:0 .16rem;
+                  background:#fff;
+                  margin-top:.08rem;
+                -webkit-box-shadow: .03rem 0  .03rem #dfdfdf ;
+                -moz-box-shadow:  .03rem 0  .03rem #dfdfdf;
+                box-shadow:  .03rem 0  .03rem #dfdfdf;
+                  h2{
+                      font:.1rem/.36rem '微软雅黑';
+                      color:#060606;
+                      border-bottom:1px solid #e1e1e1;
+                  }
+                  p{
+                      font:.12rem/.36rem '微软雅黑';
+                      color:#3c3c3c;
+                  }
+              }
+         }
+
+    }
+
+}

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.header img {
+  display: block;
+  width: 100%; }
+
+.content {
+  padding: .16rem .25rem 0; }
+  .content .title {
+    padding-left: .26rem;
+    font: .11rem/.26rem '微软雅黑';
+    color: #313131;
+    background: url("../img/VIP-3.png") no-repeat left center;
+    background-size: 5%; }
+  .content .msg p {
+    font: .12rem/.24rem '微软雅黑';
+    color: #3c3c3c; }
+  .content .tip p {
+    font: .12rem/.18rem '微软雅黑';
+    color: #ff6254; }
+  .content .status {
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    margin-top: .14rem; }
+    .content .status span {
+      display: inline-block;
+      font: .14rem/.41rem '微软雅黑';
+      color: #2d2d2d; }
+  .content .btn {
+    padding-top: .34rem; }
+    .content .btn button {
+      display: block;
+      width: 60%;
+      margin: 0 auto;
+      font: .12rem/.24rem '微软雅黑';
+      color: #828282;
+      text-align: center;
+      background: #d8d8d8;
+      border: none;
+      border-radius: .2rem; }
+    .content .btn .active {
+      color: #fff;
+      background: url("../img/button.png") no-repeat center;
+      background-size: cover; }
+
+/*# sourceMappingURL=mem_invatation.css.map */

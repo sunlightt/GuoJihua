@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+.header{
+    img{
+        display:block;
+        width:100%;
+    }
+}
+
+.content {
+    padding:.16rem .25rem 0;
+    .title{
+          padding-left:.26rem;
+          font:.11rem/.26rem '微软雅黑';
+          color:#313131;
+          background:url("../img/VIP-3.png") no-repeat left center;
+          background-size:5%;
+    }
+    .msg{
+        p{
+            font:.12rem/.24rem '微软雅黑';
+            color:#3c3c3c;
+        }
+    }
+    .tip{
+       p{
+            font:.12rem/.18rem '微软雅黑';
+            color:#ff6254;
+       }
+    }
+    .status{
+        border-top:1px solid #e7e7e7;
+        border-bottom:1px solid #e7e7e7;
+        margin-top:.14rem;
+        span{
+          display:inline-block;
+          font:.14rem/.41rem '微软雅黑';
+          color:#2d2d2d;
+        }
+    }
+
+    .btn{
+        padding-top:.34rem;
+        button{
+            display:block;
+            width:60%;
+            margin:0 auto;
+            font:.12rem/.24rem '微软雅黑';
+            color:#828282;
+            text-align:center;
+            background:#d8d8d8;
+            border:none;
+            border-radius:.2rem;
+        }
+        .active{
+             color:#fff;
+             background:url("../img/button.png") no-repeat center;
+             background-size:cover;
+        }
+    }
+}

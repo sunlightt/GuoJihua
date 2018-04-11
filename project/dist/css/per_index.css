@@ -1,0 +1,94 @@
+@charset "UTF-8";
+body {
+  height: 100%; }
+
+.parent {
+  background: #f9f8f8;
+  height: 100%;
+  padding-bottom: .64rem; }
+
+.header {
+  padding: .3rem 0 .15rem;
+  background: url("../img/per_bg.png") no-repeat center;
+  background-size: cover;
+  position: relative; }
+  .header img {
+    display: block;
+    width: .84rem;
+    height: .84rem;
+    border-radius: 50%;
+    margin: 0 auto .06rem; }
+  .header .username, .header .userid {
+    display: block;
+    font: .15rem/.25rem '微软雅黑';
+    color: #fff;
+    text-align: center; }
+  .header .sign {
+    display: inline-block;
+    font: .15rem/.25rem '微软雅黑';
+    color: #fff;
+    position: absolute;
+    top: .17rem;
+    right: 0;
+    padding: 0 .13rem 0 .34rem;
+    background: url("../img/icon3.png") no-repeat left center;
+    background-size: 100%; }
+
+.content .top_tab {
+  background: #fff;
+  padding: 0 .13rem;
+  border-bottom: 1px solid #dddedd;
+  paddding-bottom: .2rem; }
+  .content .top_tab ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap; }
+    .content .top_tab ul li {
+      width: 30%;
+      text-align: center;
+      padding: .13rem 0;
+      position: relative; }
+      .content .top_tab ul li span {
+        display: inline-block;
+        font: .13rem '微软雅黑';
+        color: #3a3a3a; }
+    .content .top_tab ul li:after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: .24rem;
+      background: #cccccd;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%); }
+    .content .top_tab ul li:first-child:after {
+      display: none; }
+.content .nav_wrap {
+  background: #fff;
+  margin-top: .1rem; }
+  .content .nav_wrap ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    .content .nav_wrap ul li {
+      width: 33%;
+      padding: .23rem 0 .14rem;
+      border-right: 1px solid #e7e7e7;
+      border-bottom: 1px solid #e7e7e7; }
+      .content .nav_wrap ul li a {
+        display: block;
+        width: 100%; }
+        .content .nav_wrap ul li a img {
+          display: block;
+          width: .22rem;
+          margin: 0 auto; }
+        .content .nav_wrap ul li a span {
+          display: block;
+          font: .12rem/.31rem '微软雅黑';
+          color: #575757;
+          text-align: center; }
+
+/*# sourceMappingURL=per_index.css.map */
